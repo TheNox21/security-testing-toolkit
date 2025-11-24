@@ -1,0 +1,51 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "database": {
+    "uri": "mongodb://localhost:27017/advanced_blind_xss"
+  },
+  "security": {
+    "minConfidenceScore": 80,
+    "enableMultiStageVerification": true,
+    "duplicateDetectionWindow": 300,
+    "enableMLClassification": true
+  },
+  "payloads": {
+    "defaultOptions": {
+      "collectUrl": true,
+      "collectIp": true,
+      "collectUserAgent": true,
+      "collectCookies": true,
+      "collectLocalStorage": true,
+      "collectSessionStorage": true,
+      "collectDom": true,
+      "collectOrigin": true,
+      "collectReferer": true,
+      "takeScreenshot": true
+    },
+    "obfuscationLevel": 2
+  },
+  "reporting": {
+    "enableDeduplication": true,
+    "alerts": {
+      "email": false,
+      "slack": false,
+      "discord": false,
+      "telegram": false
+    }
+  },
+  "ml": {
+    "modelPath": "./models/xss_classifier.json",
+    "features": [
+      "url_length",
+      "user_agent_length",
+      "cookie_count",
+      "dom_size",
+      "referer_present",
+      "origin_present",
+      "screenshot_size"
+    ]
+  }
+}

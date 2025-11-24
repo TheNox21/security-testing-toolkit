@@ -1,0 +1,19 @@
+{
+  "weights": {
+    "url_length": 0.001,
+    "user_agent_length": 0.002,
+    "cookie_count": 0.3,
+    "dom_size": 0.0001,
+    "referer_present": 0.2,
+    "origin_present": 0.15,
+    "screenshot_size": 0.00001,
+    "automation_indicators": -0.4,
+    "static_resource": -0.35
+  },
+  "bias": 0.1,
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-10-26",
+    "description": "Simple XSS classification model for reducing false positives"
+  }
+}

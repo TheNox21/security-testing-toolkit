@@ -1,0 +1,41 @@
+{
+  "name": "security-testing-toolkit",
+  "version": "1.0.0",
+  "description": "A comprehensive security testing toolkit for bug bounty hunting",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "scan": "node security-suite.js run-all",
+    "test": "node form-tester.js",
+    "headers": "node header-analyzer.js",
+    "report": "node report-generator.js"
+  },
+  "keywords": [
+    "security",
+    "bug-bounty",
+    "vulnerability",
+    "scanner",
+    "xss",
+    "sql-injection",
+    "command-injection"
+  ],
+  "author": "Bug Bounty Researcher",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "moment": "^2.29.4",
+    "pdfkit": "^0.13.0"
+  },
+  "bin": {
+    "security-toolkit": "./security-suite.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/security-testing-toolkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/security-testing-toolkit/issues"
+  },
+  "homepage": "https://github.com/your-username/security-testing-toolkit#readme"
+}

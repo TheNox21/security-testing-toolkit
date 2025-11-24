@@ -1,0 +1,24 @@
+{
+  "weights": {
+    "url_length": 0.001,
+    "user_agent_length": 0.002,
+    "cookie_count": 0.3,
+    "dom_size": 0.0001,
+    "referer_present": 0.2,
+    "origin_present": 0.15,
+    "screenshot_size": 0.00001,
+    "automation_indicators": -0.4,
+    "static_resource": -0.35,
+    "banking_keywords": 0.5,
+    "financial_data_patterns": 0.4,
+    "form_fields_count": 0.25,
+    "sensitive_endpoint": 0.3
+  },
+  "bias": 0.2,
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-11-22",
+    "description": "Specialized XSS classification model for financial institutions like Delen Private Bank",
+    "training_data": "Financial sector XSS patterns and false positives"
+  }
+}

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Generated files
+scan-results-*.json
+verified-results-*.json
+bug-bounty-report-*.pdf
+
+# Temp files
+*.tmp
+*.temp
